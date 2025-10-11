@@ -93,4 +93,3 @@ um[2] = "banana";  // No ordering of keys
 | `set`           | keys only | Yes     | No         | O(log n)   | BST                  |
 | `unordered_set` | keys only | No      | No         | O(1)       | Hash Table           |
 
-Let me know if you want examples, differences in behavior, or when to use one over the other.
