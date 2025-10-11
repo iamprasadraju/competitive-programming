@@ -3,8 +3,7 @@
 # using set
 
 def containsDuplicates(nums: List(int)) -> bool:
-	return len(nums) != len(set(nums))
+	return len(set(nums)) != len(nums)
 
-
-# Runtime: 12ms | Beats 68.52%
-# Memory: 31.60 MB | Beats 53.82%
+# Runtime: 5ms | Beats 95.42%
+# Memory: 31.38 MB | Beats 90.82%
