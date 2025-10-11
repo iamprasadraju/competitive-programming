@@ -2,23 +2,23 @@
 
 #include<iostream>
 #include<vector>
-#include<map>
+#include<set>
 using namespace std;
 
-// using Map
+// using set
 
 
 bool hasDuplicates(vector<int>& nums){
-	map<int, int> s;
+	set<int> s;
 	for(int num : nums){
 		if(s.find(num) != s.end()){
 			return true;
 		}
-		s[num] = 1;
+		s.insert(num);
 	}
 	return false;
 }
 
 
-// Runtime: 110ms | Beats: 6.75%
-// Memory: 92.22 MB | 27.12 %
+// Runtime: 100ms | Beats: 11.95%
+// Memory: 92.29 MB | 27.12 %
