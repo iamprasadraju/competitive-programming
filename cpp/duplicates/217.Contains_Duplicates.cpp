@@ -2,23 +2,22 @@
 
 #include<iostream>
 #include<vector>
-#include<unordered_set>
+#include<unordered_map>
 using namespace std;
 
-// using set
-
+// using unordered_map
 
 bool hasDuplicates(vector<int>& nums){
-	unordered_setset<int> s;
+	unordered_map<int, int> s;
 	for(int num : nums){
 		if(s.find(num) != s.end()){
 			return true;
 		}
-		s.insert(num);
+		s[nums] = 1;
 	}
 	return false;
 }
 
 
-// Runtime: 51ms | Beats: 55.21%
-// Memory: 90.73 MB | 59.43%
+// Runtime: 48ms | Beats: 62.69%
+// Memory: 90.95 MB | 30.90%
