@@ -2,22 +2,21 @@
 
 #include<iostream>
 #include<vector>
-#include<unordered_map>
 using namespace std;
 
-// using unordered_map
+// using sorting
 
 bool hasDuplicates(vector<int>& nums){
-	unordered_map<int, int> s;
-	for(int num : nums){
-		if(s.find(num) != s.end()){
+	int n = nums.size;
+	sort(nums.begin(), nums.end());
+	for(int i = 0; i < n - 1; i++){
+		if(nums[i] == nums[i+1]){
 			return true;
 		}
-		s[nums] = 1;
 	}
 	return false;
 }
 
 
-// Runtime: 48ms | Beats: 62.69%
-// Memory: 90.95 MB | 30.90%
+// Runtime: 19ms | Beats: 92.81%
+// Memory: 70.88 MB | 95.44%
