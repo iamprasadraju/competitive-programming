@@ -2,14 +2,14 @@
 
 #include<iostream>
 #include<vector>
-#include<set>
+#include<unordered_set>
 using namespace std;
 
 // using set
 
 
 bool hasDuplicates(vector<int>& nums){
-	set<int> s;
+	unordered_setset<int> s;
 	for(int num : nums){
 		if(s.find(num) != s.end()){
 			return true;
@@ -20,5 +20,5 @@ bool hasDuplicates(vector<int>& nums){
 }
 
 
-// Runtime: 100ms | Beats: 11.95%
-// Memory: 92.29 MB | 27.12 %
+// Runtime: 51ms | Beats: 55.21%
+// Memory: 90.73 MB | 59.43%
