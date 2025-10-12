@@ -1,26 +1,30 @@
 // leercode Problem 242 : Valid Anagram
 
 #include<iostream>
+#include<unordered_map>
+
 using namespace std;
 
-// Using unordered_map
+// Using unordered_map and single loop
 
 bool isAnagram(string s, string t){
 	if(s.size() != t.size()){
 		return false;
 	}
 	
-	map<char, int> freqS;
-	map<char, int> freqT;
+	unordered_map<char, int> freq;
 
-	for(int x: s){
-		freqS[x]++;
-	}
-	for(int y: t){
-		freqT[y]++;
+	for(int i  = 0; i < s.size(); i++){
+		freq[s[i]]++;
+		freq[t[i]]--;
 	}
 
-	return freqS == freqT;
+	for(auto& [ch, count] : freq){
+		if(count != 0){
+			return false;
+		}
+	}
+	return true;
 
 }
 
@@ -30,5 +34,5 @@ int main(){
 }
 
 
-// Runtime: 2 ms | Beats 56.22 %
+// Runtime: 1 ms | Beats 60.51 %
 // Memory: 9.92 | Beats: 56.32 %
