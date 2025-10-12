@@ -1,20 +1,15 @@
 # leercode Problem 242 : Valid Anagram
 
 
-# Using Hashmap
+# Using ord() and limited sized list
 def isAnagram(s, t):
 	if len(s) != len(t):
         return False
-    freq = {}
-    for x, y in zip(s, t):
-        freq[x] = freq.get(x, 0) + 1
-        freq[y] = freq.get(y, 0) - 1
-        
-    for count in freq.values():
-        if count != 0:
-            return False
-    return True
+    freq = [0] * 26
+    for a, b in zip(s, t):
+    	freq[ord(a) - ord('a')] += 1
+       	freq[ord(b) - ord('a')] -= 1
+   	return all(c == 0 for c in freq)
 
-
-# Runtime: 13ms | Beats 47.96 %
-# Memory: 17.66 MB | Beats 97.44 %
+# Runtime: 11ms | Beats 72.05 %
+# Memory: 17.81 MB | Beats 64.20 %
