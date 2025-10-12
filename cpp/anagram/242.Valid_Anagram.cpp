@@ -3,17 +3,24 @@
 #include<iostream>
 using namespace std;
 
-// Using sorting 
+// Using unordered_map
 
 bool isAnagram(string s, string t){
 	if(s.size() != t.size()){
 		return false;
 	}
 	
-	sort(s.begin(), s.end());
-	sort(t.begin(), t.end());
+	map<char, int> freqS;
+	map<char, int> freqT;
 
-	return s == t;
+	for(int x: s){
+		freqS[x]++;
+	}
+	for(int y: t){
+		freqT[y]++;
+	}
+
+	return freqS == freqT;
 
 }
 
@@ -23,5 +30,5 @@ int main(){
 }
 
 
-// Runtime: 5 ms | Beats 29.44 %
-// Memory: 9.48 | Beats 98.88 %
+// Runtime: 2 ms | Beats 56.22 %
+// Memory: 9.92 | Beats: 56.32 %
