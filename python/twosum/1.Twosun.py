@@ -6,11 +6,14 @@ target = 9
 # output: [0, 1]
 
 def twosum(nums, target):
-	size = len(nums)
-    for i in range(size): 
-        if (target - nums[i]) in nums[i+1:]:
-            return [i, i + 1 + nums[i+1:].index(target - nums[i])]
+	seen = {}
+    for i, num in enumerate(nums):
+        diff = target - num
+        if diff in seen:
+            return [seen[diff], i]
+        seen[num] = i
 
+# Time Complexity: O(n)
+# Runtime: 3 ms | Beats 99.94% -> O(n^2)
+# Memory: 19.34 MB| Beats 10.96% 
 
-# Runtime: 314 ms | Beats 33.94% -> O(n^2)
-# Memory: 18.34 MB| Beats 87.96% 
