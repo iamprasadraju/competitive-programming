@@ -5,18 +5,12 @@ target = 9
 
 # output: [0, 1]
 
-# It takes O(n^2) of time complexity
 def twosum(nums, target):
 	size = len(nums)
-	for i in range(size):
-		for j in range(i+1, size):
-			if nums[i] + nums[j] == target:
-				print([i , j])	# Check
-				return [i, j]
+    for i in range(size): 
+        if (target - nums[i]) in nums[i+1:]:
+            return [i, i + 1 + nums[i+1:].index(target - nums[i])]
 
 
-twosum(nums, target)
-
-
-# Runtime: 1670ms | Beats 29.94%
-# Memory: 18.61 MB| Beats 65.96% 
+# Runtime: 314 ms | Beats 33.94% -> O(n^2)
+# Memory: 18.34 MB| Beats 87.96% 
